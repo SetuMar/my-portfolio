@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 30vh; /* Ensures it takes up full height */
+    height: 30vh;
     text-align: center;
 }
 
@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 900px; /* Set a max-width for the content */
+    max-width: 900px; 
     width: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -102,31 +102,31 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Add this media query for mobile responsiveness */
+
 @media (max-width: 768px) {
     .about-container {
-        flex-direction: column; /* Stack image and text vertically */
-        text-align: center; /* Ensure the text is centered */
+        flex-direction: column; 
+        text-align: center;
     }
     
     .about-container img {
-        margin: 0 auto 20px; /* Center the image and add margin below */
-        max-width: 100px; /* Reduce the image size on small screens */
+        margin: 0 auto 20px;
+        max-width: 100px;
     }
 
     #about-me {
-        height: auto; /* Let the container adjust its height based on content */
-        width: 100%; /* Make sure it fits the width of the screen */
-        padding: 20px; /* Add some padding for spacing */
+        height: auto;
+        width: 100%;
+        padding: 20px; 
     }
 
     #page-content {
-        flex-direction: column; /* Stack the thumbnails vertically */
-        margin-top: 20px; /* Add margin between sections */
+        flex-direction: column;
+        margin-top: 20px; 
         padding: 10px;
     }
     
     .thumbnail {
-        width: 100%; /* Make thumbnails take full width on small screens */
+        width: 100%;
     }
 }
