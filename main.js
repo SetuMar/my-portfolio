@@ -1,5 +1,3 @@
-
-
 function resizeMe() {
     let me = document.getElementById("me");
     let parentDiv = me.parentElement;
@@ -10,15 +8,15 @@ function resizeMe() {
     let imgWidth = me.naturalWidth;
     let imgHeight = me.naturalHeight;
 
-    let imgAspectRatio = imgWidth / imgHeight;
-    let divAspectRatio = divWidth / divHeight;
+    let imgAspectRatio = (imgWidth / imgHeight);
+    let divAspectRatio = (divWidth / divHeight);
 
     if (imgAspectRatio > divAspectRatio) {
         // Image is wider than the container
-        me.style.width = divWidth + "px";
+        me.style.width = divWidth / 2 + "px";
         me.style.height = "auto";
     } else {
-        me.style.height = divHeight + "px";
+        me.style.height = divHeight / 2 + "px";
         me.style.width = "auto";
     }
 }
@@ -26,3 +24,9 @@ function resizeMe() {
 resizeMe();
 
 window.addEventListener('resize', resizeMe);
+window.addEventListener('load', resizeMe);
+
+let content = document.getElementById("page-content")
+let aboutMe = document.getElementById("about-holder")
+
+content.style.marginTop = aboutMe.clientHeight / 8 + "px"
