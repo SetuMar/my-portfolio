@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+#about-me {
+    border: 1px solid grey;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: black;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#about-me:hover{
+    transform: scale(1.02);
+    border-color: rgb(134, 134, 221);
+
+}
+
+body {
+    background-color: black;
+}
+
+* {
+    font-family: Roboto;
+    color: white;
+}
+
+#page-content {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 20px; 
+    padding: 20px;
+}
+
+
+.thumbnail {
+    width: 320px; /* Fixed width for each thumbnail */
+    border-radius: 10px;
+    overflow: hidden;
+    color: grey; 
+    border: solid 1px black;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    border-color: rgb(134, 134, 221);
+}
+
+.thumbnail img, .thumbnail iframe {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    display: block;
+    margin: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
