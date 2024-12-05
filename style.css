@@ -58,6 +58,7 @@ body {
     font-family: Roboto;
     color: white;
     text-align: center;
+    align-items: center;
 }
 
 #page-content {
@@ -67,6 +68,10 @@ body {
     flex-wrap: wrap;
     gap: 20px; 
     padding: 20px;
+
+    /* Horizontal centering */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 

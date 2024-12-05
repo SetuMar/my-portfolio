@@ -13,10 +13,10 @@ function resizeMe() {
 
     if (imgAspectRatio > divAspectRatio) {
         // Image is wider than the container
-        me.style.width = divWidth / 2 + "px";
+        me.style.width = divWidth + "px";
         me.style.height = "auto";
     } else {
-        me.style.height = divHeight / 2 + "px";
+        me.style.height = divHeight + "px";
         me.style.width = "auto";
     }
 }
