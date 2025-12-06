@@ -39,7 +39,7 @@ function App() {
         </div>
 
         <div className='contact'>
-          <a href="mailto:setu.marathe@gmail.com" target="_blank" className='move'>
+          <a href="mailto:setumarathe@gmail.com" target="_blank" className='move'>
               <div className='icon'>
                 <Mail></Mail>
               </div>
@@ -64,7 +64,7 @@ function App() {
         <div className='about'>
               <h1 className='content-header' ref={aboutRef}>About</h1>
               <p>Honours Computer Science student at Western University. Interested in Machine Learning and Web Dev. </p>
-              <p>Always happy to chat about anything so feel free to reach out. My email is <a href='mailto:setu.marathe@gmail.com' target='_blank' className='email-in-about'>setu.marathe[at]gmail[dot]com</a></p>
+              <p>Always happy to chat about anything so feel free to reach out. My email is <a href='mailto:setu.marathe@gmail.com' target='_blank' className='email-in-about'>setu[dot]marathe[at]gmail[dot]com</a></p>
         </div>
 
         <br />
