@@ -4,6 +4,18 @@ import VideoCard from './MediaCard.tsx'
 import { useRef } from 'react';
 import { Mail } from "lucide-react";
 
+import cgiImg from './assets/cgi.jpg';
+import tutorLogo from './assets/logowhite.png';
+import cityImg from './assets/city.jpg';
+
+import lidarGif from './assets/lidar.gif';
+import raycastGif from './assets/raycast.gif';
+import sortingGif from './assets/sorting.gif';
+import boidsGif from './assets/boids.gif';
+import conwaysGif from './assets/conways1.gif';
+import campersGif from './assets/campers.gif';
+
+
 function App() {
   const aboutRef = useRef<HTMLHeadingElement | null>(null);
   const experienceRef = useRef<HTMLHeadingElement | null>(null);
@@ -32,13 +44,13 @@ function App() {
 
           <a href="https://github.com/SetuMar" target="_blank" className='move'>
               <div>
-                <img src="./src/assets/icons/github.png" alt="github icon" className='icon'/>
+                <img src="./assets/icons/github.png" alt="github icon" className='icon'/>
               </div>
           </a>
 
           <a href="https://www.linkedin.com/in/setu-marathe-4448a9237/" target="_blank" className='move'>
               <div>
-                <img src="./src/assets/icons/linkedin.png" alt="github icon" className='icon'/>
+                <img src="assets/icons/linkedin.png" alt="github icon" className='icon'/>
               </div>
           </a>
         </div>
@@ -55,24 +67,118 @@ function App() {
 
         <h1 className='content-header' ref={experienceRef}>Work Experience</h1>
         <div className='video-cards'>
-          <VideoCard title='Software Developer Intern' mediaSrc='./src/assets/cgi.jpg' techStack='At CGI Inc. For BMO' bodyText='Frontend developer for BMO Small Business Banking application.' mediaType='image' mediaLink={{text: 'Visit Site', url:'https://www.cgi.com/en'}}></VideoCard>
-          <VideoCard title='Computer Science Tutor' mediaSrc='./src/assets/logowhite.png' techStack='Self-Employed' bodyText='Tutored students struggling in computer science. Provided lectures, exercises, and sample homework problems.' mediaType='gif' mediaLink={{text: 'Contact for Tutoring', url:'mailto:setu.marathe@gmail.com'}}></VideoCard>
-          <VideoCard title='Lifeguard and Swim Instructor' mediaSrc='./src/assets/city.jpg' techStack='At City of Toronto' bodyText='Taught young children how to swim. Created lesson plans and kept detailed reports on student progress. Kept pool patrons safe.' mediaType='image' mediaLink={{text: 'Visit Site', url:'https://www.toronto.ca/'}}></VideoCard>
+          <VideoCard
+            title='Software Developer Intern'
+            mediaSrc={cgiImg}
+            techStack='At CGI Inc. For BMO'
+            bodyText='Frontend developer for BMO Small Business Banking application.'
+            mediaType='image'
+            mediaLink={{ text: 'Visit Site', url:'https://www.cgi.com/en' }}
+          />
+
+          <VideoCard
+            title='Computer Science Tutor'
+            mediaSrc={tutorLogo}
+            techStack='Self-Employed'
+            bodyText='Tutored students struggling in computer science. Provided lectures, exercises, and sample homework problems.'
+            mediaType='gif'
+            mediaLink={{ text: 'Contact for Tutoring', url:'mailto:setu.marathe@gmail.com' }}
+          />
+
+          <VideoCard
+            title='Lifeguard and Swim Instructor'
+            mediaSrc={cityImg}
+            techStack='At City of Toronto'
+            bodyText='Taught young children how to swim. Created lesson plans and kept detailed reports on student progress. Kept pool patrons safe.'
+            mediaType='image'
+            mediaLink={{ text: 'Visit Site', url:'https://www.toronto.ca/' }}
+          />
         </div>
 
         <br />
 
         <h1 className='content-header' ref={projectsRef}>Projects</h1>
         <div className='video-cards'>
-          <VideoCard title="Obstacle Detection Visualizer" mediaSrc='./src/assets/lidar.gif' bodyText='Tool to visualize Machine Learning obstacle analysis of LiDAR scans. 3rd Place Western Engineering Auto Innovation Challenge.' techStack='Python, Numpy, Vedo' mediaType='gif' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/movie-explorer'}}></VideoCard>
-          <VideoCard title='Movie Review & Suggestion Site' mediaSrc='https://www.youtube.com/embed/03WI73jkcuE?si=A1s_W4W71p7H5YmP' bodyText='Movie review aggregator and explorer with Machine Learning Reccomendation Algorithm.' techStack='HTML, CSS, React (JS), Python, Flask, SciKit Learn' mediaType='video' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/movie-explorer'}}></VideoCard>
-          <VideoCard title='Bad Apple in Python Console' mediaSrc='https://www.youtube.com/embed/tjSRx2eydwk?si=oHKBSDGWnlp2HhUN' bodyText='ASCII art tool which uses Computer Vision to recreate image files to console. 27k YouTube views.' techStack='Python, OpenCV' mediaType='video' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/Bad-Apple'}}></VideoCard>
-          <VideoCard title='Wolfenstein Raycaster' mediaSrc='./src/assets/raycast.gif' bodyText='Faux-3D renderer created using Raycasting technique. Inspired by Wolfenstein game engine.' techStack='HTML, CSS, JS' mediaType='gif' mediaLink={{text: 'Try now', url:'https://setumar.github.io/'}}></VideoCard>
-          <VideoCard title='Swordtail Quest Platformer' mediaSrc='https://player.vimeo.com/video/880679042?h=85f7f6997e' bodyText='Platformer game built by a team of 8 led by myself. Winner of 1st place North Shore Hackathon.' techStack='Python, Pygame' mediaType='video' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/Swordtail-Quest'}}></VideoCard>
-          <VideoCard title='Sorting Algorithm Visualizer' mediaSrc='./src/assets/sorting.gif' bodyText='Tool to visualize and step through sorting algorithms.' techStack='HTML, CSS, JS' mediaType='gif' mediaLink={{text: 'Try now', url:'https://github.com/SetuMar/sorting-algorithm-visualizer'}}></VideoCard>
-          <VideoCard title='Boids Flocking Simulation' mediaSrc='./src/assets/boids.gif' bodyText='Simulating the travel patterns of flocks of animals. Original paper written by Craig Reynolds.' techStack='Python, Pygame' mediaType='gif' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/Boids'}}></VideoCard>
-          <VideoCard title="Conway's Game of Life" mediaSrc='./src/assets/conways1.gif' bodyText='Zero-player cellular automaton simulation which derives complex results from simple rules. Originally created by John Conway.' techStack='Python, Pygame' mediaType='gif' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/conways-game'}}></VideoCard>
-          <VideoCard title="Graphing Camper Attendence" mediaSrc='./src/assets/campers.gif' bodyText='Graphing the attendence rates of age groups of campers over two decades.' techStack='Python, Pandas, Numpy, MatPlotLib' mediaType='gif' mediaLink={{text: 'GitHub', url:'https://github.com/SetuMar/camper-graph'}}></VideoCard>
+          <VideoCard
+            title="Obstacle Detection Visualizer"
+            mediaSrc={lidarGif}
+            bodyText='Tool to visualize Machine Learning obstacle analysis of LiDAR scans. 3rd Place Western Engineering Auto Innovation Challenge.'
+            techStack='Python, Numpy, Vedo'
+            mediaType='gif'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/movie-explorer' }}
+          />
+
+          <VideoCard
+            title='Movie Review & Suggestion Site'
+            mediaSrc='https://www.youtube.com/embed/03WI73jkcuE?si=A1s_W4W71p7H5YmP'
+            bodyText='Movie review aggregator and explorer with Machine Learning Reccomendation Algorithm.'
+            techStack='HTML, CSS, React (JS), Python, Flask, SciKit Learn'
+            mediaType='video'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/movie-explorer' }}
+          />
+
+          <VideoCard
+            title='Bad Apple in Python Console'
+            mediaSrc='https://www.youtube.com/embed/tjSRx2eydwk?si=oHKBSDGWnlp2HhUN'
+            bodyText='ASCII art tool which uses Computer Vision to recreate image files to console. 27k YouTube views.'
+            techStack='Python, OpenCV'
+            mediaType='video'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/Bad-Apple' }}
+          />
+
+          <VideoCard
+            title='Wolfenstein Raycaster'
+            mediaSrc={raycastGif}
+            bodyText='Faux-3D renderer created using Raycasting technique. Inspired by Wolfenstein game engine.'
+            techStack='HTML, CSS, JS'
+            mediaType='gif'
+            mediaLink={{ text: 'Try now', url:'https://setumar.github.io/' }}
+          />
+
+          <VideoCard
+            title='Swordtail Quest Platformer'
+            mediaSrc='https://player.vimeo.com/video/880679042?h=85f7f6997e'
+            bodyText='Platformer game built by a team of 8 led by myself. Winner of 1st place North Shore Hackathon.'
+            techStack='Python, Pygame'
+            mediaType='video'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/Swordtail-Quest' }}
+          />
+
+          <VideoCard
+            title='Sorting Algorithm Visualizer'
+            mediaSrc={sortingGif}
+            bodyText='Tool to visualize and step through sorting algorithms.'
+            techStack='HTML, CSS, JS'
+            mediaType='gif'
+            mediaLink={{ text: 'Try now', url:'https://github.com/SetuMar/sorting-algorithm-visualizer' }}
+          />
+
+          <VideoCard
+            title='Boids Flocking Simulation'
+            mediaSrc={boidsGif}
+            bodyText='Simulating the travel patterns of flocks of animals. Original paper written by Craig Reynolds.'
+            techStack='Python, Pygame'
+            mediaType='gif'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/Boids' }}
+          />
+
+          <VideoCard
+            title="Conway's Game of Life"
+            mediaSrc={conwaysGif}
+            bodyText='Zero-player cellular automaton simulation which derives complex results from simple rules. Originally created by John Conway.'
+            techStack='Python, Pygame'
+            mediaType='gif'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/conways-game' }}
+          />
+
+          <VideoCard
+            title="Graphing Camper Attendence"
+            mediaSrc={campersGif}
+            bodyText='Graphing the attendence rates of age groups of campers over two decades.'
+            techStack='Python, Pandas, Numpy, MatPlotLib'
+            mediaType='gif'
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/camper-graph' }}
+          />
         </div>
 
         <br/>
