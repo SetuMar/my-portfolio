@@ -1,12 +1,10 @@
 import './App.css'
 import NameTag from './NameTag.tsx'
 import VideoCard from './MediaCard.tsx'
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Mail } from "lucide-react";
 
 function App() {
-  const [expanded, setExpanded] = useState(false);
-
   const aboutRef = useRef<HTMLHeadingElement | null>(null);
   const experienceRef = useRef<HTMLHeadingElement | null>(null);
   const projectsRef = useRef<HTMLHeadingElement | null>(null);
