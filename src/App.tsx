@@ -136,7 +136,7 @@ function App() {
             bodyText='Faux-3D renderer created using Raycasting technique. Inspired by Wolfenstein game engine.'
             techStack='HTML, CSS, JS'
             mediaType='gif'
-            mediaLink={{ text: 'Try now', url:'https://setumar.github.io/' }}
+            mediaLink={{ text: 'Try now (Desktop Only)', url:'https://setumar.github.io/' }}
           />
 
           <VideoCard
@@ -154,7 +154,7 @@ function App() {
             bodyText='Tool to visualize and step through sorting algorithms.'
             techStack='HTML, CSS, JS'
             mediaType='gif'
-            mediaLink={{ text: 'Try now', url:'https://github.com/SetuMar/sorting-algorithm-visualizer' }}
+            mediaLink={{ text: 'Try now (Desktop Only)', url:'https://setumar.github.io/sorting-algorithm-visualizer/' }}
           />
 
           <VideoCard
