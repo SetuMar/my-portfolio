@@ -4,6 +4,9 @@ import VideoCard from './MediaCard.tsx'
 import { useRef } from 'react';
 import { Mail } from "lucide-react";
 
+import githubIcon from './assets/icons/github.png';
+import linkedinIcon from './assets/icons/linkedin.png';
+
 import cgiImg from './assets/cgi.jpg';
 import tutorLogo from './assets/logowhite.png';
 import cityImg from './assets/city.jpg';
@@ -43,16 +46,17 @@ function App() {
           </a>
 
           <a href="https://github.com/SetuMar" target="_blank" className='move'>
-              <div>
-                <img src="./assets/icons/github.png" alt="github icon" className='icon'/>
-              </div>
+            <div>
+              <img src={githubIcon} alt="github icon" className='icon'/>
+            </div>
           </a>
 
           <a href="https://www.linkedin.com/in/setu-marathe-4448a9237/" target="_blank" className='move'>
-              <div>
-                <img src="assets/icons/linkedin.png" alt="github icon" className='icon'/>
-              </div>
+            <div>
+              <img src={linkedinIcon} alt="linkedin icon" className='icon'/>
+            </div>
           </a>
+
         </div>
       </nav>
 
