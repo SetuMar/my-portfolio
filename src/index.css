@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+:root {
+  --bg-primary: #0F1114;        /* deep charcoal */
+  --blue-primary: #3B82F6;      /* professional blue (clean & modern) */
+  --blue-accent: #111923;       /* subtle blue-tinted panel */
+  
+  --text-dark: #E5E7EB;         /* soft white (not blinding) */
+  --text-muted: #9CA3AF;        /* muted grey for secondary text */
+
+  --border-color: #2A2F36;      /* clean, subtle border (Linear style) */
+
+  --blue-hover: #60A5FA;        /* slightly brighter blue on hover */
+  --hover-text: #FFFFFF;        /* white text on hover backgrounds */
+  --hover-muted: #C9D7F5;       /* light blue-grey for secondary hover text */
+}
+
+
+body {
+    font-family: "Merriweather", sans-serif;
+    margin: 0;
+}

@@ -1,0 +1,111 @@
+.video-card-container {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;           /* left-align content */
+    text-align: left;
+    border-radius: 14px;
+    
+    flex: 1 1 320px;
+    max-width: 360px;
+
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+
+    padding: 20px 22px;
+    gap: 12px;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+
+    animation: fadeIn 0.4s forwards;
+
+    overflow: visible;
+}
+
+.mediaLink {
+    color: var(--text-muted);
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: ne-resize;
+}
+
+.video-card-container:hover .mediaLink {
+    color: var(--text-dark);
+}
+
+.video-card-container h2 {
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    margin: 0 0 4px 0;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.video-card-container h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;                          /* starts invisible */
+    height: 2px;
+    background-color: var(--text-dark);
+    transition: width 0.3s ease;        /* animate underline length */
+}
+
+.video-card-container:hover h2::after {
+    width: 100%;
+}
+
+.video-card-container p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.video-card-container:hover {
+    /* transform: translateY(-4px); */
+    transform: scale(1.1);
+    background-color: #181C22;                    /* slightly lighter, not blue block */
+    border-color: var(--accent-blue);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+}
+
+.video-card-container:hover p {
+    color: var(--text-dark);
+}
+
+/* Media */
+.movie-frame,
+.media-image {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  display: block;
+  margin: 0 0 8px 0;
+}
+
+.media-image {
+    height: auto;
+    object-fit: cover;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Mobile */
+@media (max-width: 800px) {
+    .video-card-container {
+        width: 100%;
+        flex: none;
+        max-width: 100%;
+    }
+}
