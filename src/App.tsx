@@ -109,7 +109,7 @@ function App() {
             bodyText='Tool to visualize Machine Learning obstacle analysis of LiDAR scans. 3rd Place Western Engineering Auto Innovation Challenge.'
             techStack='Python, Numpy, Vedo'
             mediaType='gif'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/movie-explorer' }}
+            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/lidar' }}
           />
 
           <VideoCard
