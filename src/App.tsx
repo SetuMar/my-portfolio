@@ -10,7 +10,7 @@ import ufc from './assets/ufc.png'
 const EMAIL = 'setu.marathe@gmail.com';
 const GITHUB = 'https://github.com/SetuMar';
 const LINKEDIN = 'https://www.linkedin.com/in/setu-marathe-4448a9237/';
-const RESUME = 'src/assets/Setu_Marathe-Resume.pdf'; 
+const RESUME = 'src/assets/Setu_Marathe_Resume.pdf'; 
 
 // Search for "TODO" to find every placeholder.
 // Newest first. `date`, `links` and `media` are all optional.
