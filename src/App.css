@@ -179,6 +179,10 @@ section:is(:hover, :focus-within) .section-title {
         scroll-margin-top: 130px;
     }
 
+    .section-title {
+        text-align: center;
+    }
+
     .more-link {
         margin-left: 26px;
     }

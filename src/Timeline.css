@@ -26,7 +26,8 @@
 }
 
 /* Every line is drawn twice: a grey dotted base, and a white dotted
-   copy on top that fades in when the item is hovered. */
+   copy on top. On hover the white copy fades in, strongest at the dot
+   and fading back to grey further away. */
 .tl-rail::before,
 .tl-rail::after,
 .tl-line::before,
@@ -63,6 +64,12 @@
     transform: translateX(-50%);
 }
 
+/* White highlight fades from the dot back to grey (the grey dots stay underneath) */
+.tl-rail::after {
+    -webkit-mask-image: linear-gradient(to top, #000, transparent);
+            mask-image: linear-gradient(to top, #000, transparent);
+}
+
 .tl-item:first-child .tl-rail::before,
 .tl-item:first-child .tl-rail::after {
     display: none;
@@ -95,6 +102,11 @@
 .tl-line::before,
 .tl-line::after {
     inset: 0;
+}
+
+.tl-line::after {
+    -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+            mask-image: linear-gradient(to bottom, #000, transparent);
 }
 
 .tl-item:last-child .tl-line {
