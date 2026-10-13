@@ -10,7 +10,7 @@ import ufc from './assets/ufc.png'
 const EMAIL = 'setu.marathe@gmail.com';
 const GITHUB = 'https://github.com/SetuMar';
 const LINKEDIN = 'https://www.linkedin.com/in/setu-marathe-4448a9237/';
-const RESUME = 'public/Setu_Marathe_Resume.pdf'; 
+const RESUME = '/Setu_Marathe_Resume.pdf'; 
 
 // Search for "TODO" to find every placeholder.
 // Newest first. `date`, `links` and `media` are all optional.
@@ -28,7 +28,7 @@ const experience: TimelineEntry[] = [
     org: 'Western University',
     date: 'May 2026 - Aug 2026',
     tech: 'Python, Pandas, NumPy, Gemini API',
-    links: [{ text: 'GitHub', url: 'https://github.com/SetuMar/USRI'}, { text: 'Research Output', url: 'public/Setu-Marathe-USRI-Poster.pdf'}],
+    links: [{ text: 'GitHub', url: 'https://github.com/SetuMar/USRI'}, { text: 'Research Output', url: '/Setu-Marathe-USRI-Poster.pdf'}],
     description: 'Researched the use of Large Language Models (LLMs) as causal inference tools to determine mechanisms of missingness in datasets.',
     media:{src: uwo, alt:'UWO Logo'}
   },
