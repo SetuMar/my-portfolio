@@ -1,197 +1,141 @@
 import './App.css'
-import NameTag from './NameTag.tsx'
-import VideoCard from './MediaCard.tsx'
-import { useRef } from 'react';
-import { Mail } from "lucide-react";
-
-import githubIcon from './assets/icons/github.png';
-import linkedinIcon from './assets/icons/linkedin.png';
-
-import cgiImg from './assets/cgi.jpg';
-import tutorLogo from './assets/logowhite.png';
-import cityImg from './assets/city.jpg';
+import Timeline, { type TimelineEntry } from './Timeline.tsx'
 
 import lidarGif from './assets/lidar.gif';
-import raycastGif from './assets/raycast.gif';
-import sortingGif from './assets/sorting.gif';
-import boidsGif from './assets/boids.gif';
-import conwaysGif from './assets/conways1.gif';
-import campersGif from './assets/campers.gif';
+import vanLuyk from './assets/vanluyk.jpeg'
+import cgi from './assets/cgi.jpg'
+import uwo from './assets/uwo.png'
+import ufc from './assets/ufc.png'
 
+const EMAIL = 'setu.marathe@gmail.com';
+const GITHUB = 'https://github.com/SetuMar';
+const LINKEDIN = 'https://www.linkedin.com/in/setu-marathe-4448a9237/';
+const RESUME = 'src/assets/Setu_Marathe-Resume.pdf'; 
+
+// Search for "TODO" to find every placeholder.
+// Newest first. `date`, `links` and `media` are all optional.
+const experience: TimelineEntry[] = [
+  {
+    title: 'Data Analyst Intern',
+    org: 'Van Luyk Greenhouse',
+    date: 'Jul 2026 - Aug 2026',
+    tech: 'Python, Pandas, NumPy',
+    description: 'Researched the climate and economic viability of growing saffron in Southern Ontario.',
+    media:{src: vanLuyk, alt:'Vany Luyk Garden Center Logo'}
+  },
+  {
+    title: 'Summer Research Intern',
+    org: 'Western University',
+    date: 'May 2026 - Aug 2026',
+    tech: 'Python, Pandas, NumPy, Gemini API',
+    links: [{ text: 'GitHub', url: 'https://github.com/SetuMar/USRI'}, { text: 'Research Output', url: 'src/assets/Setu-Marathe-USRI-Poster.pdf'}],
+    description: 'Researched the use of Large Language Models (LLMs) as causal inference tools to determine mechanisms of missingness in datasets.',
+    media:{src: uwo, alt:'UWO Logo'}
+  },
+  {
+    title: 'Software Developer Intern',
+    org: 'CGI Inc. for BMO',
+    date: 'May 2025 - Aug 2025',
+    description:
+      'Angular developer for the BMO Small Business Banking application. Built frontend for Pin Reset user story.',
+    tech: 'HTML, CSS, TypeScript, Angular, Git',
+    media:{src: cgi, alt:'CGI Inc. Logo'}
+  },
+];
+
+const projects: TimelineEntry[] = [
+  {
+    title: 'UFC Fight Outcome Predictor',
+    description:
+      'Engineered a machine learning pipeline using UFC fight data to forecast match outcomes with over 70% accuracy.',
+    tech: 'Python, SQL, NumPy, Pandas, SKLearn, BeautifulSoup',
+    links: [
+      { text: 'GitHub', url: 'https://github.com/SetuMar/UFC-predictor' },
+    ],
+    media: {src:ufc, alt:'UFC Logo'},
+  },
+  {
+    title: 'Movie Review & Suggestion Site',
+    description:
+      'Built a movie reviewer and aggregator that processes data across 10000+ current films and leverages a KNN algorithm to deliver highly tailored recommendations to users.',
+    tech: 'React, Python, Flask, SKLearn',
+    links: [
+      { text: 'GitHub', url: 'https://github.com/SetuMar/movie-explorer' },
+      { text: 'Demo video', url: 'https://www.youtube.com/watch?v=03WI73jkcuE' },
+    ],
+    media: {
+      src: 'https://img.youtube.com/vi/03WI73jkcuE/hqdefault.jpg',
+      alt: 'Movie site demo video',
+      href: 'https://www.youtube.com/watch?v=03WI73jkcuE',
+    },
+  },
+  {
+    title: 'Obstacle Detection Visualizer',
+    description:
+      'Developed a LiDAR Obstacle Analysis Visualization Tool to analyze machine learning obstacles across 19000+ LiDAR scans and efficiently processing datasets of 100000+ data points per scan. Received 3rd Place at Western Engineering Auto Innovation Challenge.',
+    tech: 'Python, NumPy, Vedo',
+    links: [{ text: 'GitHub', url: 'https://github.com/SetuMar/lidar' }],
+    media: { src: lidarGif, alt: 'LiDAR obstacle detection demo' },
+  },
+];
 
 function App() {
-  const aboutRef = useRef<HTMLHeadingElement | null>(null);
-  const experienceRef = useRef<HTMLHeadingElement | null>(null);
-  const projectsRef = useRef<HTMLHeadingElement | null>(null);
-
-  function scrollTo(ref: React.RefObject<HTMLHeadingElement | null>) {
-    ref.current?.scrollIntoView({behavior: "smooth", block: "start"})
-  }
-
   return (
-    <body>
+    <>
       <nav>
-        <NameTag></NameTag>
-        <div className='menu'>
-          <p className='menu-item' onClick={() => scrollTo(aboutRef)}>About</p>
-          <p className='menu-item' onClick={() => scrollTo(experienceRef)}>Experience</p>
-          <p className='menu-item' onClick={() => scrollTo(projectsRef)}>Projects</p>
+        <span className="name">Setu Marathe</span>
+
+        <div className="menu">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
         </div>
 
-        <div className='contact'>
-          <a href="mailto:setumarathe@gmail.com" target="_blank" className='move'>
-              <div className='icon'>
-                <Mail></Mail>
-              </div>
-          </a>
-
-          <a href="https://github.com/SetuMar" target="_blank" className='move'>
-            <div>
-              <img src={githubIcon} alt="github icon" className='icon'/>
-            </div>
-          </a>
-
-          <a href="https://www.linkedin.com/in/setu-marathe-4448a9237/" target="_blank" className='move'>
-            <div>
-              <img src={linkedinIcon} alt="linkedin icon" className='icon'/>
-            </div>
-          </a>
-
+        <div className="contact">
+          <a href={`mailto:${EMAIL}`}>Email</a>
+          <a href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href={GITHUB} target="_blank" rel="noreferrer">GitHub</a>
+          <a href={RESUME} target="_blank" rel="noreferrer">Resume</a>
         </div>
       </nav>
 
-      <div className='content'>
-        <div className='about'>
-              <h1 className='content-header' ref={aboutRef}>About</h1>
-              <p>Honours Computer Science student at Western University. Interested in Machine Learning and Web Dev. </p>
-              <p>Always happy to chat about anything so feel free to reach out. My email is <a href='mailto:setu.marathe@gmail.com' target='_blank' className='email-in-about'>setu[dot]marathe[at]gmail[dot]com</a></p>
-        </div>
+      <main id="top">
+        <section id="about" className="about">
+          <h2 className="section-title">About</h2>
+          <div className="about-card">
+            <div className="about-text">
+              <p>I'm a Computer Science & Data Science student at Western University interested in Data Analytics & Machine Learning. I'm always happy to chat about anything, so feel free to reach out at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.</p>
+            </div>
 
-        <br />
+            <dl className="about-facts">
+              <dt>Studying</dt>
+              <dd>CS @ UWO</dd>
+              <dt>Focus</dt>
+              <dd>Data Science & ML</dd>
+              <dt>Looking for</dt>
+              <dd>Summer 2027 internships</dd>
+              <dt>Based in</dt>
+              <dd>London, ON | Toronto, ON</dd>
+            </dl>
+          </div>
+        </section>
 
-        <h1 className='content-header' ref={experienceRef}>Work Experience</h1>
-        <div className='video-cards'>
-          <VideoCard
-            title='Software Developer Intern'
-            mediaSrc={cgiImg}
-            techStack='At CGI Inc. For BMO'
-            bodyText='Frontend developer for BMO Small Business Banking application.'
-            mediaType='image'
-            mediaLink={{ text: 'Visit Site', url:'https://www.cgi.com/en' }}
-          />
+        <section id="experience">
+          <h2 className="section-title">Work Experience</h2>
+          <Timeline items={experience} />
+        </section>
 
-          <VideoCard
-            title='Computer Science Tutor'
-            mediaSrc={tutorLogo}
-            techStack='Self-Employed'
-            bodyText='Tutored students struggling in computer science. Provided lectures, exercises, and sample homework problems.'
-            mediaType='gif'
-            mediaLink={{ text: 'Contact for Tutoring', url:'mailto:setu.marathe@gmail.com' }}
-          />
+        <section id="projects">
+          <h2 className="section-title">Projects</h2>
+          <Timeline items={projects} />
+          <p className="more-link">
+            <a href={GITHUB} target="_blank" rel="noreferrer">More projects on GitHub</a>
+          </p>
+        </section>
 
-          <VideoCard
-            title='Lifeguard and Swim Instructor'
-            mediaSrc={cityImg}
-            techStack='At City of Toronto'
-            bodyText='Taught young children how to swim. Created lesson plans and kept detailed reports on student progress. Kept pool patrons safe.'
-            mediaType='image'
-            mediaLink={{ text: 'Visit Site', url:'https://www.toronto.ca/' }}
-          />
-        </div>
-
-        <br />
-
-        <h1 className='content-header' ref={projectsRef}>Projects</h1>
-        <div className='video-cards'>
-          <VideoCard
-            title="Obstacle Detection Visualizer"
-            mediaSrc={lidarGif}
-            bodyText='Tool to visualize Machine Learning obstacle analysis of LiDAR scans. 3rd Place Western Engineering Auto Innovation Challenge.'
-            techStack='Python, Numpy, Vedo'
-            mediaType='gif'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/lidar' }}
-          />
-
-          <VideoCard
-            title='Movie Review & Suggestion Site'
-            mediaSrc='https://www.youtube.com/embed/03WI73jkcuE?si=A1s_W4W71p7H5YmP'
-            bodyText='Movie review aggregator and explorer with Machine Learning Reccomendation Algorithm.'
-            techStack='HTML, CSS, React (JS), Python, Flask, SciKit Learn'
-            mediaType='video'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/movie-explorer' }}
-          />
-
-          <VideoCard
-            title='Bad Apple in Python Console'
-            mediaSrc='https://www.youtube.com/embed/tjSRx2eydwk?si=oHKBSDGWnlp2HhUN'
-            bodyText='ASCII art tool which uses Computer Vision to recreate image files to console. 27k YouTube views.'
-            techStack='Python, OpenCV'
-            mediaType='video'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/Bad-Apple' }}
-          />
-
-          <VideoCard
-            title='Wolfenstein Raycaster'
-            mediaSrc={raycastGif}
-            bodyText='Faux-3D renderer created using Raycasting technique. Inspired by Wolfenstein game engine.'
-            techStack='HTML, CSS, JS'
-            mediaType='gif'
-            mediaLink={{ text: 'Try now (Desktop Only)', url:'https://setumar.github.io/' }}
-          />
-
-          <VideoCard
-            title='Swordtail Quest Platformer'
-            mediaSrc='https://player.vimeo.com/video/880679042?h=85f7f6997e'
-            bodyText='Platformer game built by a team of 8 led by myself. Winner of 1st place North Shore Hackathon.'
-            techStack='Python, Pygame'
-            mediaType='video'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/Swordtail-Quest' }}
-          />
-
-          <VideoCard
-            title='Sorting Algorithm Visualizer'
-            mediaSrc={sortingGif}
-            bodyText='Tool to visualize and step through sorting algorithms.'
-            techStack='HTML, CSS, JS'
-            mediaType='gif'
-            mediaLink={{ text: 'Try now (Desktop Only)', url:'https://setumar.github.io/sorting-algorithm-visualizer/' }}
-          />
-
-          <VideoCard
-            title='Boids Flocking Simulation'
-            mediaSrc={boidsGif}
-            bodyText='Simulating the travel patterns of flocks of animals. Original paper written by Craig Reynolds.'
-            techStack='Python, Pygame'
-            mediaType='gif'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/Boids' }}
-          />
-
-          <VideoCard
-            title="Conway's Game of Life"
-            mediaSrc={conwaysGif}
-            bodyText='Zero-player cellular automaton simulation which derives complex results from simple rules. Originally created by John Conway.'
-            techStack='Python, Pygame'
-            mediaType='gif'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/conways-game' }}
-          />
-
-          <VideoCard
-            title="Graphing Camper Attendence"
-            mediaSrc={campersGif}
-            bodyText='Graphing the attendence rates of age groups of campers over two decades.'
-            techStack='Python, Pandas, Numpy, MatPlotLib'
-            mediaType='gif'
-            mediaLink={{ text: 'GitHub', url:'https://github.com/SetuMar/camper-graph' }}
-          />
-        </div>
-
-        <br/>
-
-        <p className="show-more" onClick={() => {window.scrollTo({top: 0, behavior: "smooth"})}}>
-          Return to Top
-        </p>
-      </div>
-    </body>
+        <a href="#top" className="back-to-top">Back to top</a>
+      </main>
+    </>
   )
 }
 

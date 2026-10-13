@@ -1,0 +1,235 @@
+/* ---------- Timeline layout ---------- */
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tl-item {
+    --gap: 24px;               /* space between cards */
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    column-gap: 20px;
+}
+
+.tl-item:last-child {
+    --gap: 0px;
+}
+
+/* Left rail: circle + connecting line.
+   The rail is as tall as the card plus the gap below it,
+   so (100% - gap) / 2 is the card's vertical centre. */
+.tl-rail {
+    --mid: calc((100% - var(--gap)) / 2);
+    position: relative;
+}
+
+/* Every line is drawn twice: a grey dotted base, and a white dotted
+   copy on top that fades in when the item is hovered. */
+.tl-rail::before,
+.tl-rail::after,
+.tl-line::before,
+.tl-line::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background-image: linear-gradient(to bottom, var(--c) 50%, transparent 50%);
+    background-size: 2px 8px;
+    background-repeat: repeat-y;
+}
+
+/* grey base */
+.tl-rail::before,
+.tl-line::before {
+    --c: var(--text-muted);
+    opacity: 0.5;
+}
+
+/* white highlight */
+.tl-rail::after,
+.tl-line::after {
+    --c: var(--hover-text);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Incoming line: top of this item down to the dot */
+.tl-rail::before,
+.tl-rail::after {
+    top: 0;
+    height: calc(var(--mid) - 10px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tl-item:first-child .tl-rail::before,
+.tl-item:first-child .tl-rail::after {
+    display: none;
+}
+
+.tl-dot {
+    position: absolute;
+    top: calc(var(--mid) - 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 2px solid var(--text-muted);
+    background: var(--bg-primary);
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Outgoing line: below the dot, down to the next item */
+.tl-line {
+    position: absolute;
+    top: calc(var(--mid) + 10px);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+}
+
+.tl-line::before,
+.tl-line::after {
+    inset: 0;
+}
+
+.tl-item:last-child .tl-line {
+    display: none;
+}
+
+/* ---------- Card ---------- */
+
+.tl-card {
+    min-width: 0;
+    margin-bottom: var(--gap);
+    padding: 20px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-muted);
+    transition: color 0.2s, background-color 0.2s;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+/* Desktop: image sits to the right of the text */
+@media (min-width: 800px) {
+    .tl-card.has-media {
+        grid-template-columns: minmax(0, 1fr) 240px;
+        align-items: center;
+        column-gap: 32px;
+    }
+}
+
+.tl-body {
+    min-width: 0;
+}
+
+/* Keep lines readable on wide screens */
+.tl-body p {
+    max-width: 70ch;
+}
+
+.tl-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 16px;
+}
+
+.tl-title {
+    margin: 0;
+    font-size: 1.15rem;
+    color: inherit;
+}
+
+.tl-date,
+.tl-org,
+.tl-tech {
+    font-size: 0.85rem;
+}
+
+.tl-date {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.tl-org {
+    margin: 4px 0 0;
+    font-style: italic;
+}
+
+.tl-desc {
+    margin: 12px 0 0;
+    line-height: 1.6;
+}
+
+.tl-tech {
+    margin: 10px 0 0;
+}
+
+.tl-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+}
+
+.tl-media-link {
+    display: block;
+}
+
+.tl-media {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    object-fit: cover;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+}
+
+/* ---------- Hover / keyboard focus: grey → white ---------- */
+
+.tl-item:is(:hover, :focus-within) .tl-card {
+    color: var(--text-dark);
+    background-color: #181C22;
+}
+
+.tl-item:is(:hover, :focus-within) .tl-title {
+    color: var(--hover-text);
+}
+
+.tl-item:is(:hover, :focus-within) .tl-media {
+    opacity: 1;
+}
+
+.tl-item:is(:hover, :focus-within) .tl-dot {
+    border-color: var(--hover-text);
+    background: var(--hover-text);
+}
+
+.tl-item:is(:hover, :focus-within) .tl-rail::after,
+.tl-item:is(:hover, :focus-within) .tl-line::after {
+    opacity: 1;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+    .tl-item {
+        column-gap: 12px;
+    }
+
+    .tl-card {
+        padding: 16px;
+    }
+}
